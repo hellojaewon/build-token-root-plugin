@@ -84,7 +84,7 @@ public class BuildRootAction implements UnprotectedRootAction {
             delay = new TimeDuration(p.getQuietPeriod());
         }
         ParametersDefinitionProperty pp = ((Job<?,?>) p).getProperty(ParametersDefinitionProperty.class);
-        if (pp != null) {
+        if (pp == null) {
             LOGGER.fine("wrong kind");
             throw HttpResponses.error(HttpServletResponse.SC_BAD_REQUEST, "Use /buildByToken/buildWithParameters for this job since it takes parameters");
         }
